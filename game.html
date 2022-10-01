@@ -1,1 +1,26 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano Tiles</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <div class="canvas-container">
+        <div class="score" id="score">
+            0
+        </div>
+        <div class="gameEnd none" id="gameEnd">
+            <!-- Make modal here  -->
+            <button onclick="restartGame()"> Play Again<br></button>
+            <!-- Exit button  -->
+          </div>
+        <canvas class="game"  id="gameCanvas"></canvas>
+        <audio id="sample" src="assets/sound.mp3" preload></audio>
+    </div>
+</body>
+</html>
