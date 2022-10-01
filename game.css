@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.canvas-container{
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+  .canvas-container canvas{
+    background-color: white;
+    border: 0.5px solid #DDD;
+  }  
+
+  .canvas-container .score{
+    position:absolute;
+    font-weight: bold;
+    font-size: 50px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+  }
+
+  .gameEnd{
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    left: 592px;
+    width: 350px;
+    font-size: 1.5rem;
+  }
+
+  .canvas-container button{
+    background:linear-gradient(to right bottom,#7a9bf5,#44e9e1);
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size:xx-large;
+    padding: 0px 15px;
+    height: auto;
+    width: 200px;
+    cursor: pointer;    
+  }
+
+  .none{
+    display: none;
+  }
