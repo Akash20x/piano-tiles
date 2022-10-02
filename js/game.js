@@ -19,6 +19,11 @@ var config = {
   var gameCanvas;
   var gameContext;
   var isGameStarted = false;
+  var temp = 0
+
+  const keys = ["A","S","D","F"]
+  var numkey;
+
   document.addEventListener("DOMContentLoaded",function(){
     gameCanvas=document.getElementById("gameCanvas");
     scoreElement = document.getElementById("score");
@@ -39,9 +44,11 @@ var config = {
     var tile_width = config.width/config.cols;
     var tile_height = config.height/config.rows;
     var y = 200;
+    numkey = 'S';
     if(tileRows.length>0){
       var lastRow = tileRows[tileRows.length-1];
       y = lastRow.y + lastRow.height;
+      numkey =  keys[Math.floor(Math.random()*keys.length)];
   }
     var row = {
       x:0,
@@ -53,6 +60,7 @@ var config = {
       color:"#FFFFFF",
       black:{
         index:black_index,
+        key: numkey,
         color:"#000000"
       },
       increament:function(){
@@ -84,10 +92,15 @@ var config = {
   
         if(row.black.index==i){
           gameContext.fillStyle = row.black.color;
+          
           gameContext.fillRect(i*row.tileWidth,
             row.y,
             row.tileWidth,
             row.tileHeight);
+            gameContext.font = "30px Impact";
+            gameContext.fillStyle = "rgba(255,255,255,1)";  
+            gameContext.fillText(row.black.key, i*row.tileWidth+30,  row.y+100);
+            
           }
         }
         row.increament();
@@ -115,9 +128,46 @@ var config = {
           isGameStarted = true;
           startGameLoop();
         }
+
         var tile_width = config.width/config.cols;
+
+
         var x = e.clientX - gameCanvas.offsetLeft;
         var y = e.clientY - gameCanvas.offsetTop;
+
+
+        if(!x){
+            var row = tileRows[temp];
+             temp = temp + 1
+            if(e.code===`Key${row.black.key}`){
+            var audio = document.getElementById("sample");
+            if(!row.isValid){
+                row.isValid = true;
+                row.black.color="#AAAAAA";
+                score++;
+                scoreElement.innerHTML = score;
+                addRow(); 
+                audio.currentTime = playtime;
+                audio.play();
+                audio.addEventListener('timeupdate', function()
+                {
+                    if (audio.currentTime >= playtime + 0.05)
+                        audio.pause();
+                }, false);
+                playtime += 0.2;
+              }
+            else{
+                stopGameLoop();
+                displayWrongTile(row,row.black.index);
+              }
+            }
+            else{
+                stopGameLoop();
+                displayWrongTile(row,row.black.index);
+            }
+        }
+
+        else{
         var audio = document.getElementById("sample");
         var clicked_col = Math.ceil(x/tile_width) - 1;
         for(var i=0;i<tileRows.length;i++){
@@ -150,6 +200,7 @@ var config = {
             break;
           }
         }
+    }
       }
   
       function displayWrongTile(row,col_number) {
@@ -166,15 +217,18 @@ var config = {
         for(var i=0;i<tileRows.length;i++){
           displayRow(tileRows[i]);
         }
+        
+
         endGameElement.style.display="none";
         gameCanvas.addEventListener("click",handleGameUserInput);
+        document.addEventListener("keydown", handleGameUserInput);
       }
   
   
       function restartGame() {
-        console.log("dd");
         tileRows = [];
         score = 0;
+        temp=0;
         isGameStarted = false;
         config.speed = config.defaultSpeed;
         scoreElement.innerHTML = score;
