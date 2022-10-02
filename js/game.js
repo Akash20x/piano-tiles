@@ -1,9 +1,9 @@
 var config = {
-    width:300,
+    width:400,
     height:600,
     rows:4,
     cols:4,
-    speed:2,
+    speed:5,
     interval:20
   }
   config.height = window.innerHeight-2;
@@ -29,7 +29,6 @@ var config = {
     scoreElement = document.getElementById("score");
     endScoreElement = document.getElementById("endscore");
     endGameElement = document.getElementById("gameEnd");
-    // To make 2d shape with html canvas 
     gameContext=gameCanvas.getContext("2d");
     
 
@@ -51,6 +50,14 @@ var config = {
       y = lastRow.y + lastRow.height;
       numkey =  keys[Math.floor(Math.random()*keys.length)];
   }
+
+if(score>10){
+    config.speed=6
+}
+if(score>50){
+    config.speed=7
+}
+
     var row = {
       x:0,
       y:y,
@@ -228,8 +235,10 @@ var config = {
         }
         
 
+        
         endGameElement.style.display="none";
         gameCanvas.addEventListener("click",handleGameUserInput);
+
         document.addEventListener("keydown", handleGameUserInput);
       }
   
