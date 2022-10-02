@@ -1,6 +1,6 @@
 var config = {
     width:400,
-    height:600,
+    height:900,
     rows:4,
     cols:4,
     speed:5,
@@ -110,7 +110,7 @@ if(score>50){
             grd.addColorStop(0, "purple");
             grd.addColorStop(1, "white");
             gameContext.fillStyle = grd;  
-            gameContext.fillText(row.black.key, i*row.tileWidth+30,  row.y+100);
+            gameContext.fillText(row.black.key, i*row.tileWidth+40,  row.y+100);
             
           }
         }
@@ -239,7 +239,7 @@ if(score>50){
         endGameElement.style.display="none";
         gameCanvas.addEventListener("click",handleGameUserInput);
 
-        document.addEventListener("keydown", handleGameUserInput);
+        document.addEventListener("keydown", handleGameUserInput)
       }
   
   
