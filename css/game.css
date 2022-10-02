@@ -8,6 +8,7 @@
     margin: 0 auto;
     text-align: center;
     position: relative;
+    background-color: #19172e;
 }
 
   .canvas-container canvas{
@@ -22,7 +23,9 @@
     left: 0px;
     top: 0px;
     width: 100%;
+    color: #843843;
   }
+
 
   .gameEnd{
     position: absolute;
@@ -35,15 +38,65 @@
 
   .canvas-container button{
     background:linear-gradient(to right bottom,#7a9bf5,#44e9e1);
-    margin-top: 1px;
+    margin: 18px;
     margin-bottom: 1px;
-    font-size:xx-large;
+    font-size:1.35rem;
     padding: 0px 15px;
     height: auto;
-    width: 200px;
+    width: 165px;
     cursor: pointer;    
+  }
+
+  .modal-container a{
+    text-decoration: none;
+    color: black;
   }
 
   .none{
     display: none;
+  }
+
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+  }
+  
+
+  .modal-container {
+    background-color: #fff;
+    position: absolute;
+    border: 1px solid var(--border-color);
+    top: 11.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5rem;
+    width: 70%;
+    max-width: 750px;
+    padding: 3%;
+    animation: popout 1s ease-in-out;
+  }
+
+  @keyframes popout {
+    from{opacity: 0;}
+    80%{opacity: 0.8;}
+    to{opacity: 1;}
+  }
+  
+  .modal-container h2 {
+    font-size: 2rem;
+    line-height: 1.81rem;
+    color: #c81c1c;
+  }
+  
+  
+  .modal-container p {
+    margin-top: 1rem;
+    font-size: 22px;
+    font-weight: 800;
   }
