@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piano Tiles</title>
-    <link rel="stylesheet" href="css/game.css">
-    <script defer src="js/game.js"></script>
+    <link rel="stylesheet" href="myindex.css">
+    <script defer src="myindex.js"></script>
 </head>
 <body>
     <div class="canvas-container">
-        <div class="score" id="score">
-            0
+        <div class="score">
+            <p>Score: <span id="score">0</span></p>
         </div>
-        <div class="gameEnd none" id="gameEnd">
-            <!-- Make modal here  -->
-            <button onclick="restartGame()"> Play Again<br></button>
-            <!-- Exit button  -->
-          </div>
+
+        <section class="modal none" id="gameEnd">
+            <div class="modal-container">
+              <h2>Game Over</h2>
+              <p>Your Score: <span id="endscore">0</span></p>
+              <button class="continue-btn" onclick="restartGame()">Play Again</button><br>
+             <a href="/index.html"><button class="exit-btn">Exit</button></a>
+            </div>
+        </section>
+
         <canvas class="game"  id="gameCanvas"></canvas>
-        <audio id="sample" src="assets/sound.mp3" preload></audio>
+        <audio id="sample" src="resources/SFRBeats_LOFI_Softly_Acoustic.mp3" preload></audio>
     </div>
 </body>
 </html>
