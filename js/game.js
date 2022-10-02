@@ -27,6 +27,7 @@ var config = {
   document.addEventListener("DOMContentLoaded",function(){
     gameCanvas=document.getElementById("gameCanvas");
     scoreElement = document.getElementById("score");
+    endScoreElement = document.getElementById("endscore");
     endGameElement = document.getElementById("gameEnd");
     // To make 2d shape with html canvas 
     gameContext=gameCanvas.getContext("2d");
@@ -98,7 +99,10 @@ var config = {
             row.tileWidth,
             row.tileHeight);
             gameContext.font = "30px Impact";
-            gameContext.fillStyle = "rgba(255,255,255,1)";  
+            var grd = gameContext.createLinearGradient(0, 200, 150, 70);
+            grd.addColorStop(0, "purple");
+            grd.addColorStop(1, "white");
+            gameContext.fillStyle = grd;  
             gameContext.fillText(row.black.key, i*row.tileWidth+30,  row.y+100);
             
           }
@@ -142,9 +146,10 @@ var config = {
             var audio = document.getElementById("sample");
             if(!row.isValid){
                 row.isValid = true;
-                row.black.color="#AAAAAA";
+                row.black.color="#C5C5C5";
                 score++;
                 scoreElement.innerHTML = score;
+                endScoreElement.innerHTML = score;
                 addRow(); 
                 audio.currentTime = playtime;
                 audio.play();
@@ -175,9 +180,10 @@ var config = {
             if(clicked_col===row.black.index){
               if(!row.isValid){
                 row.isValid = true;
-                row.black.color="#AAAAAA";
+                row.black.color="#C5C5C5";
                 score++;
                 scoreElement.innerHTML = score;
+                endScoreElement.innerHTML = score;
                 addRow(); 
                 audio.currentTime = playtime;
                 audio.play();
@@ -204,7 +210,10 @@ var config = {
       }
   
       function displayWrongTile(row,col_number) {
-        gameContext.fillStyle = "#FF2800";
+        var grd=gameContext.createLinearGradient(0,40,100,10);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"#EE4B2B")
+        gameContext.fillStyle = grd;
         gameContext.fillRect(col_number*row.tileWidth,row.y,row.tileWidth,row.tileHeight);
       }
   
@@ -232,6 +241,7 @@ var config = {
         isGameStarted = false;
         config.speed = config.defaultSpeed;
         scoreElement.innerHTML = score;
+        endScoreElement.innerHTML = score;
         endGameElement.style.display="none";
         initGame();  
       }
