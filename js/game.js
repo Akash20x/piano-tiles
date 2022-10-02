@@ -138,7 +138,6 @@ var config = {
 
         if(!x){
             var row = tileRows[temp];
-             temp = temp + 1
             if(e.code===`Key${row.black.key}`){
             var audio = document.getElementById("sample");
             if(!row.isValid){
@@ -201,6 +200,7 @@ var config = {
           }
         }
     }
+    temp = temp + 1
       }
   
       function displayWrongTile(row,col_number) {
