@@ -1,6 +1,6 @@
 var config = {
     width:400,
-    height:900,
+    height:600,
     rows:4,
     cols:4,
     speed:5,
