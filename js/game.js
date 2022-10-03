@@ -54,9 +54,17 @@ var config = {
 if(score>10){
     config.speed=6
 }
-if(score>50){
-    config.speed=7
+if(score>20) {
+  config.speed=7
 }
+if(score>50){
+    config.speed=8
+}
+if(score>70){
+  config.speed=9
+}
+
+
 
     var row = {
       x:0,
