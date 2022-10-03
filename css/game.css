@@ -38,17 +38,33 @@ body{
     left: 592px;
     width: 350px;
     font-size: 1.5rem;
+    color: #F6E2FC
   }
 
   .canvas-container button{
-    background:linear-gradient(to right bottom,#7a9bf5,#44e9e1);
+    height:50px;
+    text-align:center;
+ line-height:1.1em;
+ font-size:1.1em;
+    border: none;
+border-radius: 10px;
+    background: #CF68FD;
     margin: 18px;
     margin-bottom: 1px;
     font-size:1.35rem;
     padding: 0px 15px;
     height: auto;
     width: 165px;
-    cursor: pointer;    
+    cursor: pointer;
+    color: #F6E2FC;    
+    font-size: 1.2rem;
+    padding: 5px
+  }
+  .canvas-container button:hover {
+    background-color: black;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
   }
 
   .modal-container a{
@@ -73,7 +89,7 @@ body{
   
 
   .modal-container {
-    background-color: #fff;
+    background-color: #19181F;
     position: absolute;
     border: 1px solid var(--border-color);
     top: 11.5rem;
@@ -96,7 +112,7 @@ body{
   .modal-container h2 {
     font-size: 2rem;
     line-height: 1.81rem;
-    color: #c81c1c;
+    color: #CF68FD;
   }
   
   
@@ -104,6 +120,7 @@ body{
     margin-top: 1rem;
     font-size: 22px;
     font-weight: 800;
+    color: #F6E2FC
   }
 
 
