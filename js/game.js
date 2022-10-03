@@ -150,7 +150,19 @@ if(score>50){
         if(!x){
             var row = tileRows[temp];
             if(e.code===`Key${row.black.key}`){
-            var audio = document.getElementById("sample");
+              // audio = document.getElementById("sample");
+              if(e.code==="KeyS"){
+                audio = document.getElementById("sample");
+              }
+              else if(e.code==="KeyA"){
+                audio = document.getElementById("sample2");
+              }
+              else if(e.code==="KeyD"){
+                audio = document.getElementById("sample3");
+              }
+              else if(e.code==="KeyF"){
+                audio = document.getElementById("sample4");
+              }
             if(!row.isValid){
                 row.isValid = true;
                 row.black.color="#C5C5C5";
