@@ -51,7 +51,7 @@ var config = {
       numkey =  keys[Math.floor(Math.random()*keys.length)];
   }
 
-if(score>10){
+  if(score>10){
     config.speed=6
 }
 if(score>20) {
