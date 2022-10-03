@@ -12,6 +12,7 @@ body{
     text-align: center;
     position: relative;
     background-color: #19172e;
+    height: 100vh;
 }
 
   .canvas-container canvas{
@@ -120,4 +121,11 @@ border-radius: 10px;
     font-size: 22px;
     font-weight: 800;
     color: #F6E2FC
+  }
+
+
+  @media screen and (max-width: 400px) {
+    .canvas-container{
+      height: 100vh;
+    }
   }

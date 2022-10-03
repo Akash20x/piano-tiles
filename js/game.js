@@ -62,7 +62,6 @@ if(score>50){
 }
 if(score>70){
   config.speed=9
-}
 
 
 
@@ -158,7 +157,7 @@ if(score>70){
         if(!x){
             var row = tileRows[temp];
             if(e.code===`Key${row.black.key}`){
-            var audio = document.getElementById("sample");
+              audio = document.getElementById("sample");            
             if(!row.isValid){
                 row.isValid = true;
                 row.black.color="#C5C5C5";
