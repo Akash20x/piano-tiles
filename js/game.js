@@ -62,7 +62,7 @@ if(score>50){
 }
 if(score>70){
   config.speed=9
-
+}
 
 
     var row = {
