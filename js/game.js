@@ -51,12 +51,9 @@ var config = {
       numkey =  keys[Math.floor(Math.random()*keys.length)];
   }
 
-if(score>10){
-    config.speed=6
-}
-if(score>50){
-    config.speed=7
-}
+// if(score>10){
+//     config.speed=6
+// }
 
     var row = {
       x:0,
@@ -150,19 +147,7 @@ if(score>50){
         if(!x){
             var row = tileRows[temp];
             if(e.code===`Key${row.black.key}`){
-              // audio = document.getElementById("sample");
-              if(e.code==="KeyS"){
-                audio = document.getElementById("sample");
-              }
-              else if(e.code==="KeyA"){
-                audio = document.getElementById("sample2");
-              }
-              else if(e.code==="KeyD"){
-                audio = document.getElementById("sample3");
-              }
-              else if(e.code==="KeyF"){
-                audio = document.getElementById("sample4");
-              }
+              audio = document.getElementById("sample");            
             if(!row.isValid){
                 row.isValid = true;
                 row.black.color="#C5C5C5";
